@@ -96,7 +96,6 @@ pytest_files = [
   'test_globalshortcuts.py',
   'test_inhibit.py',
   'test_inputcapture.py',
-  'test_location.py',
   'test_notification.py',
   'test_openuri.py',
   'test_permission_store.py',
@@ -125,7 +124,6 @@ tests = {
   'globalshortcuts': {},
   'inhibit': {},
   'inputcapture': {},
-  'location': {},
   'notification': {'timeout': 225},
   'openuri': {},
   'permission_store': {},
@@ -140,6 +138,11 @@ tests = {
   'usb': {},
   'wallpaper': {},
 }
+
+if have_geoclue
+  pytest_files += 'test_location.py'
+  tests += {'location': {}}
+endif
 
 template_files = [
   'templates/access.py',
